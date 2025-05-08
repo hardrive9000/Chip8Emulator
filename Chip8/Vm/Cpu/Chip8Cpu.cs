@@ -34,10 +34,22 @@ namespace Chip8.Vm.Cpu
         // Mapa de teclas - asocia teclas modernas con layout hexadecimal original
         public readonly Dictionary<Keys, int> keyMap = new()
         {
-            { Keys.D1, 0x1 }, { Keys.D2, 0x2 }, { Keys.D3, 0x3 }, { Keys.D4, 0xC },
-            { Keys.Q, 0x4 }, { Keys.W, 0x5 }, { Keys.E, 0x6 }, { Keys.R, 0xD },
-            { Keys.A, 0x7 }, { Keys.S, 0x8 }, { Keys.D, 0x9 }, { Keys.F, 0xE },
-            { Keys.Z, 0xA }, { Keys.X, 0x0 }, { Keys.C, 0xB }, { Keys.V, 0xF }
+            { Keys.D0, 0x0 },
+            { Keys.D1, 0x1 },
+            { Keys.D2, 0x2 },
+            { Keys.D3, 0x3 },
+            { Keys.D4, 0x4 },
+            { Keys.D5, 0x5 },
+            { Keys.D6, 0x6 },
+            { Keys.D7, 0x7 },
+            { Keys.D8, 0x8 },
+            { Keys.D9, 0x9 },
+            { Keys.A, 0xA },
+            { Keys.S, 0xB },
+            { Keys.D, 0xC },
+            { Keys.Z, 0xD },
+            { Keys.X, 0xE },
+            { Keys.C, 0xF }
         };
 
         // Fuente hexadecimal (0-F)
