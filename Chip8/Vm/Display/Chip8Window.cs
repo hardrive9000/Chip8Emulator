@@ -1,5 +1,6 @@
 ﻿using Chip8.Vm.Cpu;
 using Chip8.Vm.Display.Interfaces;
+using Chip8.Vm.Keyboard;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
@@ -148,7 +149,7 @@ namespace Chip8.Vm.Display
             base.OnUpdateFrame(e);
 
             // Procesar entrada de teclado
-            var keyboardState = KeyboardState;
+            KeyboardState keyboardState = KeyboardState;
 
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
@@ -156,7 +157,7 @@ namespace Chip8.Vm.Display
             }
 
             // Manejar todas las teclas del mapa
-            foreach (var keyMapping in Chip8.keyMap)
+            foreach (KeyValuePair<Keys, int> keyMapping in KeyboardMapping.keyMap)
             {
                 bool isPressed = keyboardState.IsKeyDown(keyMapping.Key);
                 Chip8.ProcessKeyInput(keyMapping.Key, isPressed);

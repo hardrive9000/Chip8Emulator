@@ -1,4 +1,5 @@
 ﻿using Chip8.Vm.Cpu.Interfaces;
+using Chip8.Vm.Keyboard;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
 namespace Chip8.Vm.Cpu
@@ -30,27 +31,6 @@ namespace Chip8.Vm.Cpu
 
         // Estado de las teclas (0x0 a 0xF)
         public bool[] keys = new bool[16];
-
-        // Mapa de teclas - asocia teclas modernas con layout hexadecimal original
-        public readonly Dictionary<Keys, int> keyMap = new()
-        {
-            { Keys.D0, 0x0 },
-            { Keys.D1, 0x1 },
-            { Keys.D2, 0x2 },
-            { Keys.D3, 0x3 },
-            { Keys.D4, 0x4 },
-            { Keys.D5, 0x5 },
-            { Keys.D6, 0x6 },
-            { Keys.D7, 0x7 },
-            { Keys.D8, 0x8 },
-            { Keys.D9, 0x9 },
-            { Keys.A, 0xA },
-            { Keys.S, 0xB },
-            { Keys.D, 0xC },
-            { Keys.Z, 0xD },
-            { Keys.X, 0xE },
-            { Keys.C, 0xF }
-        };
 
         // Fuente hexadecimal (0-F)
         private readonly byte[] fontset =
@@ -110,7 +90,7 @@ namespace Chip8.Vm.Cpu
             byte[] rom = File.ReadAllBytes(filename);
             if (rom.Length > 4096 - 0x200)
             {
-                throw new Exception("ROM demasiado grande para la memoria");
+                throw new Exception("ROM too big for memory");
             }
 
             for (int i = 0; i < rom.Length; i++)
@@ -118,7 +98,7 @@ namespace Chip8.Vm.Cpu
                 memory[i + 0x200] = rom[i];
             }
 
-            Console.WriteLine($"ROM {filename} cargada ({rom.Length} bytes)");
+            Console.WriteLine($"ROM Loaded: {filename} - ({rom.Length} bytes)");
         }
 
         // Limpiar pantalla
@@ -405,7 +385,7 @@ namespace Chip8.Vm.Cpu
         // Procesar entrada de teclado
         public void ProcessKeyInput(Keys key, bool pressed)
         {
-            if (keyMap.TryGetValue(key, out int keyIndex))
+            if (KeyboardMapping.keyMap.TryGetValue(key, out int keyIndex))
             {
                 keys[keyIndex] = pressed;
 
