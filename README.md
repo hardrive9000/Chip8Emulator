@@ -32,6 +32,13 @@ dotnet build
 dotnet run
 ```
 
+*CHIP-8 Emulator running on Windows 10 22H2 Visual Studio 2022 17.13.7*
+![Beautiful IBM logo](screenshots/screenshot_win_cmd.png "Beautiful IBM logo")  
+![Beautiful IBM logo](screenshots/screenshot_win_chip8.png "Beautiful IBM logo")  
+
+*CHIP-8 Emulator running on Linux Mint Cinnamon 21.3 VS Code 1.100.8 C# Dev Kit Extension*
+![Beautiful IBM logo](screenshots/screenshot_linux.png "Beautiful IBM logo")  
+
 **Keyboard mapping**:  
 <kbd>D0</kbd> - <kbd>D9</kbd> = 0 - 9  
 <kbd>A</kbd> = A  
