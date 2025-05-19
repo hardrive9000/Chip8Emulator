@@ -4,7 +4,7 @@
 
 This is a (as for now work in progress) CHIP-8 emulator written in **.NET 9**, designed for clarity, maintainability, and modular architecture. The emulator uses [OpenTK](https://www.nuget.org/packages/OpenTK/) for rendering and keyboard input. Keyboard keys 0–9, A–F maps to the corresponding CHIP-8 keys.
 
-While the initial version of the codebase was generated using an AI-assisted tool ([Anthropic Claude](https://claude.ai/)), significant effort was invested in **refactoring the code**, **improving the project structure**, and **enhancing overall readability**. The result is a cleaner, more modular emulator that aims to be educational as well as functional.
+While the initial version of the codebase was generated using an AI-assisted tool ([Anthropic Claude](https://claude.ai/)) just using the simple prompt: "Can you create a complete and functional implementation of a CHIP-8 emulator in C# .NET 9? You should use the OpenTK NuGet package for graphics handling.", significant effort was invested in **refactoring the code**, **improving the project structure**, and **enhancing overall readability**. The result is a cleaner, more modular emulator that aims to be educational as well as functional.
 
 ## Features
 
